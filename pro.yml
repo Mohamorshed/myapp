@@ -18,7 +18,7 @@ spec:
       - name: countly-registry
       containers:
       - name: app
-        image: gcr.io/mohamed-morshed/myapp:latest 
+        image: gcr.io/mohamed-morshed/myapp:${BUILD_NUMBER}
         env:
         - name: REDIS_HOST
           value: localhost

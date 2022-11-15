@@ -48,7 +48,6 @@ pipeline {
                   {                   
              
                     sh  "cat app.yml | envsubst > myfile && mv myfile app.yml"
-                    sh  "gcloud container clusters get-credentials my-gke-cluster --zone us-east1-b --project mohamed-morshed"
                     sh  "kubectl apply -f app.yml --kubeconfig $config"
                     sh  "kubectl apply -f myservice.yml --kubeconfig $config"
                    

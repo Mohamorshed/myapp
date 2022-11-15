@@ -14,11 +14,9 @@ spec:
       labels:
         app: app
     spec:
-      imagePullSecrets:
-      - name: countly-registry
       containers:
       - name: app
-        image: gcr.io/mohamed-morshed/myapp:${BUILD_NUMBER}
+        image: morshed983/morshed983:${BUILD_NUMBER}
         env:
         - name: REDIS_HOST
           value: localhost

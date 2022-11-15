@@ -48,7 +48,6 @@ pipeline {
                   {                   
              
                     sh  "cat app.yml | envsubst > myfile && mv myfile app.yml"
-                    sh  "export KUBECONFIG=$config"
                     sh  "kubectl apply -f app.yml --kubeconfig $config"
                     sh  "kubectl apply -f myservice.yml --kubeconfig $config"
                    

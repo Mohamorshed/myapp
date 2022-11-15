@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      imagePullSecrets:
+      - name: countly-registry
+      containers:
+      - name: app
+        image: gcr.io/mohamed-morshed/myapp:latest 
+        env:
+        - name: REDIS_HOST
+          value: localhost
+        ports:
+        - containerPort: 8000
+      - name: redius 
+        image: redis
+        ports:  
+        - containerPort: 6379
